@@ -8,7 +8,12 @@ namespace AnimalShelter.Models
     public string Type {get; set;}
     public int Id {get;set;}
     public List<Animal> Animal {get; set;}
-    public AnimalType(string type)
+    public AnimalType()
+    {
+      _instances.Add(this);
+      Id = _instances.Count;
+    }
+      public AnimalType(string type)
     {
       Type = type;
       _instances.Add(this);
@@ -28,5 +33,5 @@ namespace AnimalShelter.Models
     }
   }
 
-  
+
 }

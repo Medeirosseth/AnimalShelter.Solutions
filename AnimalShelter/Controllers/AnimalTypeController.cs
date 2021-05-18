@@ -34,15 +34,15 @@ namespace AnimalShelter.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Animal animal)
+    public ActionResult Create(AnimalType animaltype)
     {
-      _db.Animals.Add(animal);
+      _db.Type.Add(animaltype);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
     
   
 
-  
+
   }
 }
