@@ -18,7 +18,7 @@ namespace AnimalShelter.Controllers
 
     public ActionResult Index()
     {
-      List<AnimalType> model = _db.Animal_Types.ToList();
+      List<AnimalType> model = _db.Type.ToList();
       return View(model);
     }
 
@@ -41,6 +41,8 @@ namespace AnimalShelter.Controllers
       return RedirectToAction("Index");
     }
     
+  
+
   
   }
 }

@@ -13,5 +13,6 @@
 
 @foreach (AnimalType animalType in Model)
 {
-  <h3><a href='/animal/@animalType.Id'>@animalType.Type</a></h3>
+  <li>@Html.ActionLink($"{animalType.Type}", "Index", new {id = animalType.Id})</li>
 }
+<p>@Html.ActionLink("Add new type", "Create")</p>
