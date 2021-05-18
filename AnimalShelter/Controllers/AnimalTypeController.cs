@@ -1,0 +1,46 @@
+using System.Collections.Generic;
+using System;
+using Microsoft.AspNetCore.Mvc;
+using AnimalShelter.Models;
+using System.Linq;
+
+
+namespace AnimalShelter.Controllers
+{
+  public class AnimalTypeController : Controller 
+  {
+
+    private readonly AnimalShelterContext _db;
+    public AnimalTypeController(AnimalShelterContext db)
+    {
+      _db = db;
+    }
+
+    public ActionResult Index()
+    {
+      List<AnimalType> model = _db.Animal_Types.ToList();
+      return View(model);
+    }
+
+
+    [HttpGet("/animal/new")]
+    public ActionResult New()
+    {
+      return View();
+    }
+    public ActionResult Create()
+    {
+      return View();
+    }
+
+    [HttpPost]
+    public ActionResult Create(Animal animal)
+    {
+      _db.Animals.Add(animal);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+    
+  
+  }
+}
